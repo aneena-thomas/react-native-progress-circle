@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet, View, ViewPropTypes,I18nManager } from 'react-native'
+import { StyleSheet, View, I18nManager } from 'react-native'
+import { ViewPropTypes } from 'deprecated-react-native-prop-types'
 
 // compatability for react-native versions < 0.44
 const ViewPropTypesStyle = ViewPropTypes
   ? ViewPropTypes.style
   : View.propTypes.style
+
 let direction = I18nManager.isRTL? 'right' : 'left';
 let opDirection = I18nManager.isRTL? 'Left' : 'Right';
 const styles = StyleSheet.create({
@@ -46,7 +48,7 @@ export default class PercentageCircle extends Component {
     percent: PropTypes.number.isRequired, // eslint-disable-line react/no-unused-prop-types
     children: PropTypes.node,
     containerStyle: ViewPropTypesStyle,
-    outerCircleStyle: ViewPropTypesStyle
+    outerCircleStyle: ViewPropTypesStyle,
   };
 
   static defaultProps = {
